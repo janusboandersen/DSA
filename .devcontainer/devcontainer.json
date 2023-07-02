@@ -1,0 +1,24 @@
+{
+    "name": "DsaOnDocker",
+    "image": "docker.io/janusboandersen/cppdevtest_ubuntu:0.8",
+    "remoteEnv": {
+        "PROJECT_NAME": "DSA",
+        "PROJECT_BUILD_TYPE": "Debug",
+        "PROJECT_BUILD_TESTS": "ON",
+        "PROJECT_USE_CONAN": "ON"
+    },
+    "workspaceMount": "source=${localWorkspaceFolder},target=/root/dev/DSA,type=bind",
+    "workspaceFolder": "/root/dev/DSA",
+    "postStartCommand": "./actions.py --conan-install",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.cpptools",
+                "ms-vscode.cpptools-extension-pack",
+                "twxs.cmake",
+                "ms-vscode.cmake-tools",
+                "ms-python.python"
+            ]
+        }
+    }
+}

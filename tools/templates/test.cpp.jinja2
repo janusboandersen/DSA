@@ -1,0 +1,54 @@
+/**
+ * @file {{ test_file }}
+ * @author Janus Bo Andersen
+ * @brief Tests for Leetcode problem {{ problem_number }}
+ * @version 1.0
+ * @date {{ make_date }}
+ * 
+ * @copyright Copyright (c) {{ make_year }}
+ * 
+ */
+
+#include <gtest/gtest.h>
+#include <gmock/gmock.h>
+#include <{{ include_header }}>
+
+using namespace testing;
+using namespace {{ problem_namespace }};
+
+template <typename T>
+void print_vector(const std::vector<T>& v)
+{
+    int n = v.size()-1;
+    std::cout << "v = {";
+    for (const auto& elem : v) {
+        std::cout << elem << (n-- ? ", " : "");
+    }
+    std::cout << "}" << std::endl;
+}
+
+struct TestPair {
+    Solution::InputValueType data;
+    Solution::ReturnValueType result;
+};
+
+class {{ problem_namespace }}_ConstraintsAndExamples: public Test {
+public:
+    Solution solution;
+    TestPair ex1 { {1,2,3,1}, true };
+    TestPair ex2 { {1,2,3,4}, false };
+    TestPair ex3 { {1,1,1,3,3,4,3,2,4,2}, true };
+
+};
+
+TEST_F({{ problem_namespace }}_ConstraintsAndExamples, TestCase1_MatchesExample) {
+    EXPECT_EQ(solution.renameMe(ex1.data), ex1.result);
+}
+
+TEST_F({{ problem_namespace }}_ConstraintsAndExamples, TestCase2_MatchesExample) {
+    EXPECT_EQ(solution.renameMe(ex2.data), ex2.result);
+}
+
+TEST_F({{ problem_namespace }}_ConstraintsAndExamples, TestCase3_MatchesExample) {
+    EXPECT_EQ(solution.renameMe(ex3.data), ex3.result);
+}

@@ -1,0 +1,34 @@
+/**
+ * @file {{ source_file }}
+ * @author Janus Bo Andersen
+ * @brief Solution to LeetCode prob. {{ problem_number }}
+ * @version 1.0
+ * @date {{ make_date }}
+ * 
+ * @copyright Copyright (c) {{ make_year }}
+ * 
+ */
+
+#include <iostream>
+#include <{{ include_header }}>
+
+namespace {{ problem_namespace }} {
+
+template <typename T>
+void print_vector(const std::vector<T>& v)
+{
+    int n = v.size()-1;
+    std::cout << "v = {";
+    for (const auto& elem : v) {
+        std::cout << elem << (n-- ? ", " : "");
+    }
+    std::cout << "}" << std::endl;
+}
+
+Solution::ReturnValueType Solution::renameMe(Solution::InputValueType& nums)
+{
+    print_vector(nums);
+    return false;
+}
+
+} // namespace
